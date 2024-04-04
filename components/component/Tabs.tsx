@@ -71,9 +71,6 @@ export function TabsDemo() {
               </div>
             </div>
           </CardContent>
-          <CardFooter>
-            <Button>Save changes</Button>
-          </CardFooter>
         </Card>
       </TabsContent>
       <TabsContent value="members">

@@ -8,6 +8,8 @@ import {
   File,
   Settings,
   Target,
+  BadgeHelp,
+  BookOpen,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -102,7 +104,14 @@ export default function DashboardLayout({
               href="#"
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
             >
-              <LineChart className="h-4 w-4" />
+              <BookOpen className="h-4 w-4" />
+              Docs
+            </Link>
+            <Link
+              href="#"
+              className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+            >
+              <BadgeHelp className="h-4 w-4" />
               Support
             </Link>
           </div>

@@ -21,6 +21,13 @@ import {
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+  SelectValue,
+} from "../ui/select";
 
 import {
   DropdownMenu,
@@ -31,6 +38,19 @@ import {
   DropdownMenuTrigger,
   DropdownMenuCheckboxItem,
 } from "@/components/ui/dropdown-menu";
+
+const comboBoxOptions = [
+  {
+    key: 1,
+    value: "Periskope",
+    label: "Periskope",
+  },
+  {
+    key: 2,
+    value: "Hashmail",
+    label: "Hashmail",
+  },
+];
 
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -57,7 +77,7 @@ const Navbar = () => {
           </SheetTrigger>
           <SheetContent side="left" className="flex flex-col">
             <nav className="grid gap-2 text-lg font-medium">
-              <ComboBox />
+              <ComboBox options={comboBoxOptions} />
               <Link
                 href="#"
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
@@ -137,9 +157,10 @@ const Navbar = () => {
           <Circle className="text-green-500" />
           +919004389372
         </Button>
-        {/* <Button size="sm">
+        <Button variant="default" size="sm">
           <Bell className="h-5 w-5" />
-        </Button> */}
+        </Button>
+
         <ModeToggle />
       </header>
     </div>
