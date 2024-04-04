@@ -109,11 +109,7 @@ export const columns: ColumnDef<TableData>[] = [
     cell: ({ row }) => {
       const labels = row.getValue("labels");
       return Array.isArray(labels) ? (
-        labels.map((label, index) => (
-          <Badge key={index}>
-            {label}
-          </Badge>
-        ))
+        labels.map((label, index) => <Badge key={index}>{label}</Badge>)
       ) : (
         <Badge variant="default">{labels}</Badge>
       );
@@ -126,6 +122,12 @@ export const columns: ColumnDef<TableData>[] = [
   {
     accessorKey: "lastActive",
     header: "Last Active",
+    cell: ({ row }) => {
+      const rawDate = row.getValue("lastActive");
+      const date = new Date(rawDate);
+      const formattedDate = date.toLocaleDateString(); // Change the date format as needed
+      return <div>{formattedDate}</div>;
+    },
   },
 
   {
@@ -163,7 +165,7 @@ export function DataTable({ data }: TableDataProps) {
   const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
-    data,
+    data: data,
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
