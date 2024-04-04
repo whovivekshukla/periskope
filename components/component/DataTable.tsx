@@ -38,6 +38,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { ComboBox } from "./ComboBox";
+import { TableData, TableDataProps } from "@/lib/types";
 
 const comboBoxOptions = [
   {
@@ -56,18 +57,6 @@ const comboBoxOptions = [
     value: "actionTwo",
   },
 ];
-
-export type TableData = {
-  groupName: string;
-  project: string;
-  labels: string[];
-  members: number;
-  lastActive: string;
-};
-
-interface TableDataProps {
-  data: TableData[];
-}
 
 export const columns: ColumnDef<TableData>[] = [
   {

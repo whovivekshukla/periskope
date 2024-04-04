@@ -11,33 +11,12 @@ import {
   Search,
   ShoppingCart,
   Users,
-  ListFilter,
-  PlusCircle,
-  MoreHorizontal,
-  CircleHelp,
   Circle,
   Group,
 } from "lucide-react";
-import Image from "next/image";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-  SelectValue,
-} from "../ui/select";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  DropdownMenuCheckboxItem,
-} from "@/components/ui/dropdown-menu";
 
 const comboBoxOptions = [
   {
@@ -52,10 +31,7 @@ const comboBoxOptions = [
   },
 ];
 
-import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
-import { getTableData } from "@/lib/api";
 import { ComboBox } from "./ComboBox";
 import { ModeToggle } from "../ModeToggle";
 import { Label } from "../ui/label";
