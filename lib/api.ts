@@ -1,6 +1,6 @@
 export const getTableData = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/data");
+    const response = await fetch(`${process.env.DEPLOYMENT_URL}/api/data`);
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }
