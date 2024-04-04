@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { Check, ChevronsUpDown } from "lucide-react";
 import { useState } from "react";
@@ -19,22 +19,9 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-const frameworks = [
-  {
-    key: 1,
-    value: "Periskope",
-    label: "Periskope",
-  },
-  {
-    key: 2,
-    value: "Hashmail",
-    label: "Hashmail",
-  },
-];
-
-export function ComboBox() {
+export function ComboBox({ options }) {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(frameworks[0].value); // Set initial value to the value of the first option
+  const [value, setValue] = useState(options[0].value); // Set initial value to the value of the first option
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -42,20 +29,19 @@ export function ComboBox() {
         <div
           role="combobox"
           aria-expanded={open}
-          className="flex items-center justify-between w-[200px]"
+          className="flex items-center justify-between w-[120px]"
         >
-          {frameworks.find((framework) => framework.value === value)?.label}
+          {options.find((option) => option.value === value)?.label}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </div>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
           <CommandGroup>
-            {frameworks.map((framework) => (
-              <CommandList>
+            {options.map((option) => (
+              <CommandList key={option.value}>
                 <CommandItem
-                  key={framework.value}
-                  value={framework.value}
+                  value={option.value}
                   onSelect={(currentValue) => {
                     setValue(currentValue);
                     setOpen(false);
@@ -64,10 +50,10 @@ export function ComboBox() {
                   <Check
                     className={cn(
                       "mr-2 h-4 w-4",
-                      value === framework.value ? "opacity-100" : "opacity-0"
+                      value === option.value ? "opacity-100" : "opacity-0"
                     )}
                   />
-                  {framework.label}
+                  {option.label}
                 </CommandItem>
               </CommandList>
             ))}

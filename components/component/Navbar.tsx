@@ -133,7 +133,7 @@ const Navbar = () => {
           <CircleHelp className="h-5 w-5" />
           Docs
         </Button> */}
-        <Button size="sm">
+        <Button variant="outline" size="sm">
           <Circle className="text-green-500" />
           +919004389372
         </Button>

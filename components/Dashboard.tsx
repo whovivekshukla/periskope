@@ -1,46 +1,99 @@
 import Link from "next/link";
 import {
-  BarChart,
-  Bell,
-  CircleUser,
   Home,
   LineChart,
-  Menu,
   Package,
-  Package2,
-  Search,
   ShoppingCart,
   Users,
-  ListFilter,
-  PlusCircle,
-  MoreHorizontal,
+  File,
+  Settings,
+  Target,
 } from "lucide-react";
-import Image from "next/image";
+
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  DropdownMenuCheckboxItem,
-} from "@/components/ui/dropdown-menu";
-
-import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ModeToggle } from "./ModeToggle";
 import { ComboBox } from "./component/ComboBox";
 import { TableComponent } from "./component/Table";
 import { CardWithForm } from "./component/Card";
-import { DataTableDemo } from "./component/DataTable";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
-import { getTableData } from "@/lib/api";
+import { DataTable } from "./component/DataTable";
+
 import Navbar from "./component/Navbar";
 
+import { getTableData } from "@/lib/api";
+
 export async function Dashboard() {
+  // const data: TableData[] = [
+  //   {
+  //     groupname: "Sapphire Eagles",
+  //     project: "Avalanche",
+  //     labels: ["Development", "Design"],
+  //     members: 10,
+  //     lastactive: "2024-03-09",
+  //   },
+  //   {
+  //     groupname: "Golden Phoenix",
+  //     project: "Firestorm",
+  //     labels: ["Marketing", "Research"],
+  //     members: 6,
+  //     lastactive: "2024-03-05",
+  //   },
+  //   {
+  //     groupname: "Silver Tigers",
+  //     project: "Thunderstrike",
+  //     labels: ["Testing", "Analysis"],
+  //     members: 8,
+  //     lastactive: "2024-03-12",
+  //   },
+  //   {
+  //     groupname: "Ruby Dragons",
+  //     project: "Blizzard",
+  //     labels: ["QA", "Documentation"],
+  //     members: 7,
+  //     lastactive: "2024-03-18",
+  //   },
+  //   {
+  //     groupname: "Emerald Wolves",
+  //     project: "Cyclone",
+  //     labels: ["Support", "Training"],
+  //     members: 12,
+  //     lastactive: "2024-03-21",
+  //   },
+  //   {
+  //     groupname: "Amber Bears",
+  //     project: "Whirlwind",
+  //     labels: ["Management", "Sales"],
+  //     members: 9,
+  //     lastactive: "2024-03-25",
+  //   },
+  //   {
+  //     groupname: "Obsidian Lions",
+  //     project: "Tornado",
+  //     labels: ["Operations", "Security"],
+  //     members: 11,
+  //     lastactive: "2024-03-28",
+  //   },
+  //   {
+  //     groupname: "Topaz Falcons",
+  //     project: "Earthquake",
+  //     labels: ["Integration", "Deployment"],
+  //     members: 5,
+  //     lastactive: "2024-03-03",
+  //   },
+  //   {
+  //     groupname: "Diamond Bears",
+  //     project: "Typhoon",
+  //     labels: ["DevOps", "Optimization"],
+  //     members: 8,
+  //     lastactive: "2024-03-16",
+  //   },
+  //   {
+  //     groupname: "Jade Falcons",
+  //     project: "Hurricane",
+  //     labels: ["Localization", "Customization"],
+  //     members: 7,
+  //     lastactive: "2024-03-22",
+  //   },
+  // ];
   const data = await getTableData();
 
   return (
@@ -87,21 +140,21 @@ export async function Dashboard() {
                 href="#"
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
               >
-                <LineChart className="h-4 w-4" />
+                <Target className="h-4 w-4" />
                 Logs
               </Link>
               <Link
                 href="#"
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
               >
-                <LineChart className="h-4 w-4" />
+                <File className="h-4 w-4" />
                 Files
               </Link>
               <Link
                 href="#"
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
               >
-                <LineChart className="h-4 w-4" />
+                <Settings className="h-4 w-4" />
                 Settings
               </Link>
             </nav>
@@ -118,13 +171,13 @@ export async function Dashboard() {
         </div>
       </div>
       <div className="flex flex-col">
-       <Navbar/>
+        <Navbar />
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
             <div className="col-span-1 lg:col-span-8 max-h-[500px]  overflow-auto">
               {/* <TableComponent /> */}
 
-              <DataTableDemo data={data} />
+              <DataTable data={data} />
             </div>
 
             <div className="col-span-1 lg:col-span-4 ">

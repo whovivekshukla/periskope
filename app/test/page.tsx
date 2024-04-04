@@ -1,12 +1,8 @@
-import { DataTableDemo } from "@/components/component/DataTable";
-import Navbar from "@/components/component/Navbar";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { getTableData } from "@/lib/api";
 
-const TestPage = () => {
-  return (
-    <div>
-      <Navbar />
-    </div>
-  );
+const TestPage = async () => {
+  const data = await getTableData();
+
+  return <div>{JSON.stringify(data)}</div>;
 };
 export default TestPage;

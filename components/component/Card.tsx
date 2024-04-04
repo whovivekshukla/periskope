@@ -12,41 +12,49 @@ import {
 } from "@/components/ui/card";
 import { TabsDemo } from "./Tabs";
 import { Badge } from "../ui/badge";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
+import { ScrollArea } from "../ui/scroll-area";
 
 export function CardWithForm() {
   return (
-    <Card className="w-[350px]">
-      <CardHeader>
-        <div className="flex justify-between">
-          <CardTitle>Evoque</CardTitle>
-          <Button>Refresh</Button>
-        </div>
-      </CardHeader>
-      <ScrollArea className="h-96 overflow-auto">
-        <CardContent>
-          <div>
-            <TabsDemo />
+    <ScrollArea className="h-full w-full rounded-md border">
+      <Card className="w-[350px]">
+        <CardHeader>
+          <div className="flex justify-between">
+            <CardTitle>Evoque</CardTitle>
+            <Button>Refresh</Button>
           </div>
-        </CardContent>
-        <CardFooter className="flex justify-between">
-          <Button variant="outline">Export Chat</Button>
-          <Button variant="destructive">Exit Group</Button>
-        </CardFooter>
-        <Card className="m-6">
-          <CardHeader>
-            <CardDescription>PER-011 | Evoke</CardDescription>
-            <CardTitle>Issues with mention on groups</CardTitle>
-          </CardHeader>
-          <CardFooter>
-            <Badge>
-              <BarChart />
-            </Badge>
-            <Badge><Calendar/>Dec 22</Badge>
-            <Badge><Dot/>Client</Badge>
+        </CardHeader>
+        <ScrollArea className="h-96 overflow-auto">
+          <CardContent>
+            <div>
+              <TabsDemo />
+            </div>
+          </CardContent>
+          <CardFooter className="flex justify-between">
+            <Button variant="outline">Export Chat</Button>
+            <Button variant="destructive">Exit Group</Button>
           </CardFooter>
-        </Card>
-      </ScrollArea>
-    </Card>
+          <Card className="m-6">
+            <CardHeader>
+              <CardDescription>PER-011 | Evoke</CardDescription>
+              <CardTitle>Issues with mention on groups</CardTitle>
+            </CardHeader>
+            <CardFooter>
+              <Badge>
+                <BarChart />
+              </Badge>
+              <Badge>
+                <Calendar />
+                Dec 22
+              </Badge>
+              <Badge>
+                <Dot />
+                Client
+              </Badge>
+            </CardFooter>
+          </Card>
+        </ScrollArea>
+      </Card>
+    </ScrollArea>
   );
 }
